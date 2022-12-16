@@ -50,3 +50,35 @@ if(num % 2 == 0) Console.WriteLine("An even number");
 else Console.WriteLine("An not even number");
 */
 
+// Задача 4: Напишите программу, которая на вход принимает число (N), а на выходе показывает все чётные числа от 1 до N.
+
+/*
+Console.Write("Input a number: ");
+int num = Convert.ToInt32(Console.ReadLine());
+int cur = 1;
+
+if(num > 0)
+{
+    while (cur <= num)
+    {
+        if(cur % 2 == 0) 
+        {
+            Console.Write(cur);
+         cur = cur + 1;
+        }
+        else cur++;
+    }
+}
+else
+{
+    while (cur >= num)
+    {
+        if(cur % 2 == 0) 
+        {
+            Console.Write(cur);
+         cur = cur - 1;
+        }
+        else cur = cur - 1;
+    }
+}
+*/
