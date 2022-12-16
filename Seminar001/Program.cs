@@ -40,3 +40,13 @@ else  Console.WriteLine($"Max number: {max}");
 
 */
 
+// Задача 3: Напишите программу, которая на вход принимает число и выдаёт, является ли число чётным (делится ли оно на два без остатка).
+
+/*
+Console.Write("Input a number: ");
+int num = Convert.ToInt32(Console.ReadLine());
+
+if(num % 2 == 0) Console.WriteLine("An even number");
+else Console.WriteLine("An not even number");
+*/
+
