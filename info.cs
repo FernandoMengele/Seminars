@@ -49,3 +49,25 @@ while(current <= number)
 32254 % 10000 = 2254
 
 */
+
+// Методы--------------
+
+int NewNumber ()
+
+{
+    int result;  // вход int, выход тоже int
+    return result;  
+}
+
+bool NewNumber2 ()
+{
+    int a = 1;
+    if(a > 0) return true;
+    return false; // либо true либо false
+}
+
+int a = 5;
+if(a > 0 && a % 2 == 0) // && - и, || - или
+{
+
+}
