@@ -51,13 +51,25 @@ while(current <= number)
 */
 
 // Методы--------------
-
-int NewNumber ()
-
+/*
+[модификаторы] тип_возвращаемого_значения Название_метода ([параметры])
 {
-    int result;  // вход int, выход тоже int
-    return result;  
+   тело метода 
 }
+*/
+
+
+int LargerNumber(int num) // вызываем функцию LargerNumber(randomnum)
+{
+   
+    int num1 = num / 10;
+    int num2 = num % 10;
+    if(num1 > num2) return num1;
+    return num2;
+}
+
+int randomnum = new Random().Next(10, 100);
+Console.WriteLine($"Random number is {randomnum} LargerNumber {LargerNumber(randomnum)}");
 
 bool NewNumber2 ()
 {
