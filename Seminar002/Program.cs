@@ -1,66 +1,35 @@
-﻿/* 
-
-int CutNumber(int number)
-{
-    int sot = number / 100;
-    int ed = number % 10;
-
-    int result = sot * 10 + ed;
-    return result; // обязательно возвращаем, если не void
-}
-
-int randNumber = new Random().Next(100, 1000);
-int newNumber = CutNumber(randNumber);
-
-Console.WriteLine($"New version of a number {randNumber} is {newNumber}");
-
-*/
-
-// Напишите программу, которая выводит случайное число из отрезка [10, 99] и показывает наибольшую цифру числа.
+﻿// Задача 10: Напишите программу, которая принимает на вход трёхзначное число и на выходе показывает вторую цифру этого числа.
 /*
-
-int LargerNumber(int num)
+int SecondNum(int num)
 {
-   
-    int num1 = num / 10;
-    int num2 = num % 10;
-    if(num1 > num2) return num1;
-    return num2;
+int second = num / 10 % 10;
+return second;
 }
 
-int randomnum = new Random().Next(10, 100);
-Console.WriteLine($"Random number is {randomnum} LargerNumber {LargerNumber(randomnum)}");
+Console.WriteLine("Данный алгоритм принимает на вход трехзначное число и на выходе показывает вторую цифру этого числа");
+Console.Write("Введите трехзначное число:");
+int second = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine($"Вторая цифра Вашего числа: {SecondNum(second)}");
 
 */
 
-// Напишите программу, которая будет принимать на вход два числа и выводить, является ли второе число кратным первому.
-
-
+// Задача 13: Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
 /*
-bool Mult(int num1, int num2)
+int ThirdNum(int num)
 {
-    if(num1 % num2 == 0) return true;
-    return false;
+    while(num >= 1000)
+    {
+        num= num/10;
+    }
+    
+    return num % 10;
+    
 }
-Console.Write("Input first number: ");
-int num1 = Convert.ToInt32(Console.ReadLine());
-Console.Write("Input second number: ");
-int num2 = Convert.ToInt32(Console.ReadLine());
 
-Console.WriteLine(Mult(num1, num2));
-
+Console.WriteLine("Данный алгоритм выводит третью цифру заданного Вами числа");
+Console.Write("Введите число: ");
+int number = Convert.ToInt32(Console.ReadLine());
+if (number / 100 != 0) Console.WriteLine($"Третья цифра введенного числа: {ThirdNum(number)}");
+else Console.Write("Третьей цифры введенного числа не существует.");
 */
 
-// Напишите программу, которая принимает на вход два числа и проверяет, является ли одно число квадратом другого.
-
-bool Mult(int num1, int num2)
-{
-    if(num1 * num1 == num2 || num2 * num2 == num1) return true;
-    return false;
-}
-Console.Write("Input first number: ");
-int num1 = Convert.ToInt32(Console.ReadLine());
-Console.Write("Input second number: ");
-int num2 = Convert.ToInt32(Console.ReadLine());
-
-Console.WriteLine(Mult(num1, num2));
