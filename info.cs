@@ -83,3 +83,9 @@ if(a > 0 && a % 2 == 0) // && - и, || - или
 {
 
 }
+
+bool Mult(int num1, int num2) // bool метод пример
+{
+    if(num1 * num1 == num2 || num2 * num2 == num1) return true;
+    return false;
+}
