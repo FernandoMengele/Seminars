@@ -89,3 +89,12 @@ bool Mult(int num1, int num2) // bool метод пример
     if(num1 * num1 == num2 || num2 * num2 == num1) return true;
     return false;
 }
+
+// double
+Math.Pow(a,b) = a в степени b // возведение в степень
+Math.Sqrt(a) = кв. корень a // извлечение КВАДРАТНОГО корня
+Math.Round(a,b) // округление числа
+0,12346789 где a = все числа после запятой, b = кол-во знаков, которые требуются
+
+ if(quadrant == 1) Console.WriteLine("x > 0 and y > 0");
+    else if(quadrant == 2) Console.WriteLine("x < 0 and y > 0"); // каскадная проверка
