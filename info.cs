@@ -98,3 +98,8 @@ Math.Round(a,b) // округление числа
 
  if(quadrant == 1) Console.WriteLine("x > 0 and y > 0");
     else if(quadrant == 2) Console.WriteLine("x < 0 and y > 0"); // каскадная проверка
+
+// если будет пудключаться переменная, использующаяся только в цикле, то for
+for(int current = 1; current <= num; current++)
+        sum += current; 
+for([инициализация временной переменной]; [условие цикла]; [изменение временной переменной(current++ и тд)])
