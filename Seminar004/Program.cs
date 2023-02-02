@@ -1,70 +1,72 @@
-﻿//необходимо написать программу, которая по заданному числу четверти покажет диапазон возможных точек координат этой четверти
-/*
-void GetDiapazone (int quadrant)
+﻿/*
+//task 25. input: two numbers (A и B) , output: A in a natural power B. Code without using internal Pow method.
+//3, 5 -> 243 (3⁵)
+//2, 4 -> 16
+double MyPow(double num, int pow)
 {
-    if(quadrant == 1) Console.WriteLine("x > 0 and y > 0");
-    else if(quadrant == 2) Console.WriteLine("x < 0 and y > 0");
-    else if(quadrant == 3) Console.WriteLine("x < 0 and y < 0");
-    else if(quadrant == 4) Console.WriteLine("x > 0 and y < 0");
-    else Console.WriteLine("Wrong input!");
+    double powRes = 1;
+    for (int i = 1; i <= Math.Abs(pow); i++) // if without Math.Abs() - then should check if pow>=0 before using this method
+        powRes *= num;
+    return powRes;
 }
-
-Console.Write("Input a number of quadrant: ");
-int quadNum = Convert.ToInt32(Console.ReadLine());
-
-GetDiapazone(quadNum);
-
+Console.Write("Please input number A:  ");
+double num = Convert.ToDouble(Console.ReadLine());
+Console.Write("Please input power value B as natural number ");
+int pow = Convert.ToInt32(Console.ReadLine());
+//if (pow >= 0)
+//{
+double numPow = MyPow(num, pow);
+Console.WriteLine($"The result of A ({num}) in natural B power ({Math.Abs(pow)}) is {numPow}  ");
+//}
+//else Console.WriteLine(" incorrect input, entered B is not natural ");
 */
-
-// Задача 1
-
 /*
-int GetFunct(int xPos, int yPos)
+//Task 27: Input: number, output: sum of its digits.
+//452 -> 11
+//82 -> 10
+//9012 -> 12
+int SumOfDigits(int num)
 {
-    if(xPos > 0 && yPos > 0) return 1;
-    else if (xPos < 0 && yPos > 0) return 2;
-    else if (xPos < 0 && yPos < 0) return 3;
-    else if (xPos > 0 && yPos < 0) return 4;
-    else return 0;
-}
-
-Console.Write("Input x: ");
-int x = Convert.ToInt32(Console.ReadLine());
-
-Console.Write("Input y: ");
-int y = Convert.ToInt32(Console.ReadLine());
-
-Console.WriteLine(GetFunct(x,y));
-*/
-
-// Задача 2. Напишите программу, которая принимает на вход число N и выводит таблицу квадратов до числа N
-/*
-void Funct(int n)
-{
-    int count = 1;
-    while (count <= n)
+    int result = 0, testNum = Math.Abs(num);
+    while (testNum != 0)
     {
-        int z = count + count;
-        Console.WriteLine(z);
-        count++;
+        result += testNum % 10;
+        testNum /= 10;
     }
+    return result;
 }
-Console.Write("Input number: ");
+Console.Write("Please input integer number: ");
 int num = Convert.ToInt32(Console.ReadLine());
-Funct(num);
+int digitsSum = SumOfDigits(num);
+Console.WriteLine($"The sum of the digits in entered number ({num}) is {digitsSum} ");
 */
-// Найти расстояние между точками
 
-double Funct(double xPos1, double yPos1, double xPos2, double yPos2)
+/*
+//Task 29: input: array length m and all array elements, output:  the array itself( to console as well)
+//1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
+//6, 1, 33 -> [6, 1, 33]
+int[] GetArrayFromUser(int length)
 {
-    return Math.Sqrt(Math.Pow(xPos1 - xPos2, 2) + Math.Pow(yPos1 - yPos2, 2));
+    int[] array = new int[length];
+    for (int i = 0; i < length; i++)
+    {
+        Console.Write($"Please input array number with index {i}: ");
+        array[i] = Convert.ToInt32(Console.ReadLine());
+    }
+    return array;
 }
-Console.Write("Input x1: ");
-double x1 = Convert.ToDouble(Console.ReadLine());
-Console.Write("Input y1: ");
-double y1 = Convert.ToDouble(Console.ReadLine());
-Console.Write("Input x2: ");
-double x2 = Convert.ToDouble(Console.ReadLine());
-Console.Write("Input y2: ");
-double y2 = Convert.ToDouble(Console.ReadLine());
-Console.WriteLine(Funct(x1,y1,x2,y2));
+void ArrayToConsole(int[] array)
+{
+    Console.Write("Your array is [");
+    for (int i = 0; i < array.Length-1; i++)
+    {
+        Console.Write(array[i] + ", ");
+    }
+    Console.Write($"{array[array.Length-1]}]");
+    Console.WriteLine();
+}
+Console.Write("Please input array length ");
+int length = Convert.ToInt32(Console.ReadLine());
+int[] yourArray = GetArrayFromUser(length);
+ArrayToConsole(yourArray);
+*/
