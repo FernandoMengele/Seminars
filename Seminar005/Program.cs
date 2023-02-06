@@ -1,126 +1,119 @@
 ﻿/*
-int GetSum (int num)
-{
-    int sum = 0;
-    for (int current = 0; current <= num; current++)
-        sum += current;
-    return sum;
-}
-Console.Write("Input a number: ");
-int a = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine(GetSum(a));
-*/
-// Напишите программу, которая принимает на вход число N и выдает произведение чисел от 1 до N
-/*
-int GetComp (int num){
-    int Factorial = 1;
-    for (int current = 1; current <= num; current++)
-        Factorial *= current;
-    return Factorial;
-}
+// Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
 
-Console.Write("Input anumber: ");
-int a = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine(GetComp(a));
-*/
-//Напишите программу, которая приимает на вход число и выдает количество цифр в числе.
-/*
-int Numbers (int n){
+// [345, 897, 568, 234] -> 2
+
+int[] CreateRandomThreeDigitArray(int length)
+{
+    int[] array = new int[length];
+    for (int i = 0; i < length; i++)
+        array[i] = new Random().Next(100, 1000);
+    return array;
+}
+void ArrayToConsole(int[] array)
+{
+    Console.Write("Your array is [");
+    for (int i = 0; i < array.Length - 1; i++)
+        Console.Write(array[i] + ", ");
+    Console.Write($"{array[array.Length - 1]}]");
+    Console.WriteLine();
+}
+int CountEvenInArray(int[] array)
+{
     int count = 0;
-    while (n != 0){
-        n = n / 10;
-        count++;
-    }
+    for (int i = 0; i < array.Length; i++)
+        if (array[i] % 2 == 0) count++;
     return count;
 }
-Console.Write("Input a number: ");
-int a = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine(Numbers(a));
+Console.Write("Please input array length ");
+int length = Convert.ToInt32(Console.ReadLine());
+int[] newArray = CreateRandomThreeDigitArray(length);
+ArrayToConsole(newArray);
+Console.WriteLine($"The total quantity of even numbers in array above is  {CountEvenInArray(newArray)} ");
 */
 
-//-----------------[MASSIVES]-----------------
+
+
+// Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
+
+// [3, 7, 23, 12] -> 19
 /*
-int[] CreateRandomArray(int size, int minValue, int maxValue){
-    int[] array = new int[size];
-    for(int i = 0; i < size; i++)
+[-4, -6, 89, 6] -> 0
+int[] CreateRandomArray(int length, int minValue, int maxValue)
+{
+    int[] array = new int[length];
+    for (int i = 0; i < length; i++)
         array[i] = new Random().Next(minValue, maxValue + 1);
     return array;
 }
-
-void ShowArray(int[] array){
-    for(int i = 0; i < array.Length; i++){
-        Console.Write(array[i] + " ");
-        
-    }
+void ArrayToConsole(int[] array)
+{
+    Console.Write("Your array is [");
+    for (int i = 0; i < array.Length - 1; i++)
+        Console.Write(array[i] + ", ");
+    Console.Write($"{array[array.Length - 1]}]");
     Console.WriteLine();
 }
-Console.Write("input a length of array: ");
-int length = Convert.ToInt32(Console.ReadLine());
-Console.Write("input a min possible value: ");
-int min = Convert.ToInt32(Console.ReadLine());
-Console.Write("input a max possible value: ");
-int max = Convert.ToInt32(Console.ReadLine());
-
-int[] newArray = CreateRandomArray(length, min, max);
-ShowArray(newArray);
-*/
-
-// Задача 25: Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
-
-/* 
-double GetNum (double num, int pow){
-    double powRes = 1;
-    for (int i = 1; i <= Math.Abs(pow); i++)
-        powRes *= num;
-    return powRes;
-}
-Console.Write("Input a number A: ");
-int numA = Convert.ToInt32(Console.ReadLine());
-Console.Write("Input a power: ");
-int pow = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine(GetNum(numA, pow));
-*/
-
-// Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
-
-/*
-int SumNumber (int num){
-    int current = 0;
-    while (num != 0){
-        num = num / 10;
-        current++;
-    }
-    return current;
-}
-Console.Write("Input a number: ");
-int num = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine(SumNumber(num));
-*/
-
-// Задача 29: Напишите программу, которая задаёт массив из m элементов и выводит их на экран.
-/*
-int[] GetMassive(int length)
+int CountSumOddIndex(int[] array)
 {
-    var array = new int[length];
-    for (int i = 0; i < array.Length; i++)
-    {
-        Console.Write("Input a number: ");
-        array[i] = Convert.ToInt32(Console.ReadLine());
-    }
+    int sum = 0;
+    for (int i = 1; i < array.Length; i += 2)
+        sum += array[i];
+    return sum;
+}
+Console.Write("Please input array length ");
+int length = Convert.ToInt32(Console.ReadLine());
+Console.Write("Please input array minValue ");
+int minValue = Convert.ToInt32(Console.ReadLine());
+Console.Write("Please input array maxValue ");
+int maxValue = Convert.ToInt32(Console.ReadLine());
+int[] newArray = CreateRandomArray(length, minValue, maxValue);
+ArrayToConsole(newArray);
+int res = CountSumOddIndex(newArray);
+Console.WriteLine($"The sum of all numbers at odd position in array is {res} ");
+*/
+
+// Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
+
+// [3 7 22 2 78] -> 76
+/*
+double[] CreateRandomDoubleArray(int length, int minValue, int maxValue)
+{
+    double[] array = new double[length];
+    for (int i = 0; i < length; i++)
+        array[i] = new Random().Next(minValue, maxValue) + new Random().NextDouble();
     return array;
 }
-void GiveMassive(int[] array)
+void DoubleArrayToConsole(double[] array)
 {
-    Console.Write("You are array is [ ");
+    Console.Write("Your array is [");
     for (int i = 0; i < array.Length - 1; i++)
-    {
-        Console.Write(array[i] + ",");
-    }
-    Console.Write($"{array[array.Length-1]}]");
+        Console.Write(array[i] + ", ");
+    Console.Write($"{array[array.Length - 1]}]");
     Console.WriteLine();
 }
-Console.Write("Please input array length: ");
+
+double MaxMinDif(double[] array)
+{
+    double max = array[0], min = array[0] ;
+    for (int i = 1; i < array.Length; i++)
+    {
+        if (array[i] >= max) max = array[i];
+        else if(array[i]<=min) min = array[i];
+    }
+    return max - min;
+}
+
+
+Console.Write("Please input array length ");
 int length = Convert.ToInt32(Console.ReadLine());
-int[] array = GetMassive(length);
-GiveMassive(array);
+Console.Write("Please input array minValue ");
+int minValue = Convert.ToInt32(Console.ReadLine());
+Console.Write("Please input array maxValue ");
+int maxValue = Convert.ToInt32(Console.ReadLine());
+
+double[] newArray = CreateRandomDoubleArray(length, minValue, maxValue);
+DoubleArrayToConsole(newArray);
+
+Console.WriteLine($"The difference between Max and Min value in array is {MaxMinDif(newArray)} ");
 */
