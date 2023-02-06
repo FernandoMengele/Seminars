@@ -112,10 +112,11 @@ int[] CreateRandomArray(int lenght, int minValue, int maxValue){ // Целочи
     }
     return array; // при возвращении массива array пишется без обозначения массива []!!!!
 }
-// метод для ввода элементов массива
+// метод для ввода элементов массива вручную
 void ShowArray(int[] array){
     for(int i = 0; i < array.legth; i++){
         Console.Write(array[i] + " ");
         Console.WriteLine();
     }
 // !!!!! размер массива всегда int
+// методы бывают генерирующими, аналитическими, преобразующими
