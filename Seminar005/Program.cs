@@ -1,38 +1,50 @@
-﻿/*
+﻿
 // Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
 
 // [345, 897, 568, 234] -> 2
 
-int[] CreateRandomThreeDigitArray(int length)
+/*
+int[] CreateRandomArray(int length, int minValue, int maxValue)
 {
     int[] array = new int[length];
-    for (int i = 0; i < length; i++)
-        array[i] = new Random().Next(100, 1000);
+    for(int i = 0; i < length; i++)
+    {
+        array[i] = new Random().Next(minValue, maxValue + 1);
+    }
     return array;
 }
-void ArrayToConsole(int[] array)
+
+void ShowArray(int[] array)
 {
-    Console.Write("Your array is [");
-    for (int i = 0; i < array.Length - 1; i++)
-        Console.Write(array[i] + ", ");
-    Console.Write($"{array[array.Length - 1]}]");
+    for(int i = 0; i < array.Length; i++)
+    {
+        Console.Write(array[i] + " ");
+    }
     Console.WriteLine();
 }
-int CountEvenInArray(int[] array)
+
+int SumNum(int[] array)
 {
-    int count = 0;
-    for (int i = 0; i < array.Length; i++)
-        if (array[i] % 2 == 0) count++;
-    return count;
+    int sum = 0;
+    for(int i = 0; i < array.Length; i++)
+    {
+        if(array[i] % 2 == 0) sum++;
+    }
+    return sum;
 }
-Console.Write("Please input array length ");
+
+Console.Write("Input value array: ");
 int length = Convert.ToInt32(Console.ReadLine());
-int[] newArray = CreateRandomThreeDigitArray(length);
-ArrayToConsole(newArray);
-Console.WriteLine($"The total quantity of even numbers in array above is  {CountEvenInArray(newArray)} ");
+Console.Write("Input min value possible: ");
+int minVal = Convert.ToInt32(Console.ReadLine());
+Console.Write("Input max possible: ");
+int maxVal = Convert.ToInt32(Console.ReadLine());
+
+int[] myArr = CreateRandomArray(length, minVal, maxVal);
+ShowArray(myArr);
+int sumN = SumNum(myArr);
+Console.WriteLine($"В массиве существует {sumN} четных чисел.");
 */
-
-
 
 // Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
 
