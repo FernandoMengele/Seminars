@@ -1,141 +1,71 @@
-﻿// Необхогдимо написать программу, которая определяет сумму отрицательных элементов массива
-/* 
-int[] CreateRandomArray(int size, int minValue, int maxValue)
-{
-    int[] array = new int[size];
-    for(int i = 0; i < size; i++)
-    {
-        array[i] = new Random().Next(minValue, maxValue + 1);
-    }
-    return array;
-}
-*/
+﻿// Задача 41: Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.
+
+// 0, 7, 8, -2, -2 -> 2
+
+// 1, -7, 567, 89, 223-> 3  <<<----- В условии либо ошибка, либо упущен знак минуса перед первой единицей
 /*
-int[] CreateArray(int size)
+Console.Write("Введите количество чисел, которые Вы хотите внедрить в программу: ");
+int size = Convert.ToInt32(Console.ReadLine());
+int sum = 0;
+int current = 0;
+while(current < size)
 {
-    int[] array = new int[size];
-    for (int i = 0; i < size; i++)
-    {
-        Console.Write($"Input a {i + 1} element: ");
-        array[i] = Convert.ToInt32(Console.ReadLine());
-    }
-    return array;
+    Console.Write("Введите число: ");
+    int num = Convert.ToInt32(Console.ReadLine());
+    if(num > 0) sum++;
+    current++;
 }
+Console.WriteLine($"Количество чисел больше нуля: {sum}");
 */
+// Не знаю, нужен ли был метод в данной программе, но вот с методом:
 /*
-int GetSumOfNegatives(int[] array)
+int SumOfPositiveNumbers(int size)
 {
     int sum = 0;
-
-    for(int i = 0; i < array.Length; i++)
-        {
-            if(array[i] < 0) sum += array[i];
-        }
+    for(int c = 0; c < size; c++)
+    {
+        Console.Write("Введите число: ");
+        if(Convert.ToInt32(Console.ReadLine()) > 0) sum++;
+    }
     return sum;
 }
-
-void ShowArray(int[] array)
-{
-    for(int i = 0; i < array.Length; i++){
-        Console.Write(array[i] + " ");
-        Console.WriteLine();
-    }
-}
-
-Console.Write("Input a length of array: ");
-int length = Convert.ToInt32(Console.ReadLine());
-Console.Write("Input a min possiple value: ");
-int min = Convert.ToInt32(Console.ReadLine());
-Console.Write("Input a max possiple value: ");
-int max = Convert.ToInt32(Console.ReadLine());
-
-int[] newArray = CreateRandomArray(length, min, max);
-ShowArray(newArray);
-
-int result = GetSumOfNegatives(newArray);
-Console.WriteLine("Sum of negatives in this array is " + result);
+Console.Write("Введите количество чисел, которые Вы хотите внедрить в программу: ");
+int size = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine($"Количество чисел больше нуля: {SumOfPositiveNumbers(size)}");
 */
-// Необходимо написать программу, заменяющее положительные элементы массива отрицательными и наоборот
+// Задача 43: Напишите программу, которая найдёт точку пересечения двух прямых, заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 задаются пользователем.
+
+// b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
 /*
-int[] CreateRandomArray (int length, int minValue, int maxValue)
+double[] LinesCrossing(double k1, double b1, double k2, double b2)
 {
-    int[] array = new int[length];
-    for(int i = 0; i < length; i++)
-    {
-        array[i] = new Random().Next(minValue, maxValue + 1);
-    }
-    return array;
+    double[] cross = new double[2];
+    cross[0] = (b2 - b1) / (k1 - k2);
+    cross[1] = k1 * cross[0] + b1;
+    return cross;
 }
-
-void ShowMeArray(int[] array)
+void DoubleArrayToConsole(double[] array)
 {
-    for(int i = 0; i < array.Length; i++)
-    {
-        Console.Write(array[i] + " ");
-    }
+    Console.Write("[");
+    for (int i = 0; i < array.Length - 1; i++)
+        Console.Write(array[i] + ", ");
+    Console.Write($"{array[array.Length - 1]}]");
     Console.WriteLine();
 }
-
-int[] ConvertArray (int[] array)
+Console.WriteLine("Заполните две функции, описывающие линии в координатах X,Y y = k1 * x + b1, y = k2 * x + b2");
+Console.Write("Введите k1: ");
+double k1 = Convert.ToDouble(Console.ReadLine());
+Console.Write("Введите b1: ");
+double b1 = Convert.ToDouble(Console.ReadLine());
+Console.Write("Введите k2: ");
+double k2 = Convert.ToDouble(Console.ReadLine());
+Console.Write("Введите b2: ");
+double b2 = Convert.ToDouble(Console.ReadLine());
+if (k1 != k2)
 {
-    for(int i = 0; i < array.Length; i++)
-    {
-        array[i] = -array[i];
-    }
-    return array;
+    Console.Write("Ваши прямые пересекаются в координатах [X,Y]: ");
+    DoubleArrayToConsole(LinesCrossing(k1, b1, k2, b2));
 }
-
-Console.Write("Input length of array: ");
-int length = Convert.ToInt32(Console.ReadLine());
-Console.Write("Input min value a posible: ");
-int min = Convert.ToInt32(Console.ReadLine());
-Console.Write("Input a max value a posible: ");
-int max = Convert.ToInt32(Console.ReadLine());
-int[] arr = CreateRandomArray(length, min, max);
-ShowMeArray(arr);
-int[] newArr = ConvertArray(arr);
-ShowMeArray(newArr);
+else if(b1 != b2) Console.WriteLine("Ваши прямые не пересекаются");
+else Console.WriteLine("Ваши прямые лежат на одной плоскости");
 */
-// Необходимо написать программу, определяющую, присутствует ли заданное число в массиве
-
-int[] CreateRandomArray(int length, int minValue, int maxValue)
-{
-    int[] array = new int[length];
-    for(int i = 0; i < length; i++)
-    {
-        array[i] = new Random().Next(minValue, maxValue + 1);
-    }
-    return array;
-}
-
-void ShowArray (int[] array)
-{
-    for(int i = 0; i < array.Length; i++)
-    {
-        Console.Write(array[i] + " ");
-    }
-    Console.WriteLine();
-}
-
-bool FindNumber(int[] array, int fnum)
-{
-    for(int i = 0; i < array.Length; i++)
-    {
-        if(array[i] == fnum) return true;  
-    }
-    return false;
-}
-Console.Write("Input length of array: ");
-int length = Convert.ToInt32(Console.ReadLine());
-Console.Write("Input min value a posible: ");
-int min = Convert.ToInt32(Console.ReadLine());
-Console.Write("Input a max value a posible: ");
-int max = Convert.ToInt32(Console.ReadLine());
-Console.Write("Enter the desired number: ");
-int fnum = Convert.ToInt32(Console.ReadLine());
-int[] arr = CreateRandomArray(length, min, max);
-ShowArray(arr);
-bool yesno = FindNumber(arr, fnum);
-if(yesno == true) Console.WriteLine("Yes!");
-else Console.WriteLine("No");
-// Необходимо задать массив из N элементов и определить количество элементов, пренадлежащих отрезку от A до B ()
