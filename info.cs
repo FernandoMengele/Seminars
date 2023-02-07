@@ -113,10 +113,23 @@ int[] CreateRandomArray(int lenght, int minValue, int maxValue){ // Целочи
     return array; // при возвращении массива array пишется без обозначения массива []!!!!
 }
 // метод для ввода элементов массива вручную
-void ShowArray(int[] array){
+void ShowArray(int[] array)
+{
     for(int i = 0; i < array.legth; i++){
         Console.Write(array[i] + " ");
-        Console.WriteLine();
     }
+    Console.WriteLine();
+}
 // !!!!! размер массива всегда int
 // методы бывают генерирующими, аналитическими, преобразующими
+// ПРИ РАБОТЕ С МАССИВАМИ ВЫДЕЛЯЕТСЯ ПАМЯТЬ ТОЛЬКО ПОД ОДИН МАССИВ, все остальные действия производятся
+// только с этим массивом, вызов ссылки и присваивание другой ссылки только ссылается на этот массив
+//_______bool_____
+//буливый метод может быть реализован либо через if либо сразу можно писать в result неравенства. 
+// Если условия выполнятся, автоматически даст true и наоборот
+bool Existence(int num1, int num2, int num3)
+{
+    return(num1 + num2 > num3) && (num2 + num3 > num1) && (num3 + num1 > num2);
+}
+if(Existence(n1, n2, n3)) Console.WriteLine("Может");
+else Console.WriteLine("Не может");
