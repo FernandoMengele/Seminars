@@ -1,138 +1,163 @@
-﻿// Развернуть массив поэлементно
-/*
-int[] CreateRandomArray(int length, int minValue, int maxValue)
+﻿/*
+// Задача 47. Задайте двумерный массив размером m×n, заполненный случайными вещественными числами.
+//m = 3, n = 4.
+//0,5 7 -2 -0,2
+//1 -3,3 8 -9,9
+//8 7,8 -7,1 9
+double[,] CreateRandom2dDoubleArray()
 {
-    int[] array = new int[length];
-    for(int i = 0; i < length; i++)
+    Console.WriteLine("Please input array rows: ");
+    int rows = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Please input array columns: ");
+    int columns = Convert.ToInt32(Console.ReadLine());
+    
+    double[,] array = new double[rows, columns];
+    for (int i = 0; i < rows; i++)
     {
-        array[i] = new Random().Next(minValue, maxValue + 1);
+        for (int j = 0; j < columns; j++)
+        {
+            array[i, j] = new Random().Next(-100, 100) +  new Random().NextDouble(); // double in range (-100, 100)
+        }
     }
+    Console.WriteLine();
     return array;
 }
-
-void ReverseArray(int[] array)
+void Show2dDoubleArray(double[,] array)
 {
-    for(int i = 0, j = array.Length - 1; i < j; i++, j--)
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-        int temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-    }
-}
-
-void ShowArray(int[] array)
-{
-    for(int i = 0; i < array.Length; i++)
-    {
-        Console.Write(array[i] + " ");
+        for (int j = 0; j < array.GetLength(1); j++)
+            Console.Write("{0:0.00 \t}", array[i, j]);
+        Console.WriteLine();
     }
     Console.WriteLine();
 }
-
-Console.Write("Input value array: ");
-int length = Convert.ToInt32(Console.ReadLine());
-Console.Write("Input min value possible: ");
-int minVal = Convert.ToInt32(Console.ReadLine());
-Console.Write("Input max possible: ");
-int maxVal = Convert.ToInt32(Console.ReadLine());
-
-int[] myArray = CreateRandomArray(length, minVal, maxVal);
-ShowArray(myArray);
-ReverseArray(myArray);
-ShowArray(myArray);
+double[,] doubleRandomArray = CreateRandom2dDoubleArray();
+Show2dDoubleArray(doubleRandomArray);
 */
 
-// Неободимо написать программу, которая принимает 3 числа и сообщает, может ли существовать треугольник с такими сторонами.
 /*
-bool Existence(int num1, int num2, int num3)
+//Задача 50. Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, и возвращает значение этого элемента или же указание, что такого элемента нет.
+
+// Например, задан массив:
+//1 4 7 2
+//5 9 2 3
+//8 4 2 4
+//1 7 -> элемента с такими индексами в массиве нет
+int[,] CreateFullRandom2dArray()
 {
-    return(num1 + num2 > num3) && (num2 + num3 > num1) && (num3 + num1 > num2);
-}
-
-Console.Write("Input a first number: ");
-int n1 = Convert.ToInt32(Console.ReadLine());
-Console.Write("Input a second number: ");
-int n2 = Convert.ToInt32(Console.ReadLine());
-Console.Write("Input a third number: ");
-int n3 = Convert.ToInt32(Console.ReadLine());
-
-if(Existence(n1, n2, n3)) Console.WriteLine("Может");
-else Console.WriteLine("Не может");
-*/
-
-// Необходимо написать программу, не используя рекурсию, необходимо вывести первую N чисел Фибаначи, где первая двойка чисел это A и B.
-// (Каждое новое число происходит от суммы двух предыдущих элементов ряда) (На входе не 2 нуля, должно быть 2 элемента для начала ряда чисел)
-// Сформировать массив
-/*
-double[] CreateArray(int length, int num1, int num2)
-{
-    double[] array = new double[length];
-    array[0] = num1;
-    array[1] = num2;
-    for(int i = 2; i < length; i++)
+    int rows = new Random().Next(2, 15);
+    int columns = new Random().Next(2, 15);
+    int[,] array = new int[rows, columns];
+    for (int i = 0; i < rows; i++)
     {
-        array[i] = array[i - 1] + array[i - 2];
+        for (int j = 0; j < columns; j++)
+        {
+            array[i, j] = new Random().Next(-10, 11);
+        }
     }
     return array;
 }
-void ShowArray(double[] array)
+void Show2DArray(int[,] array)
 {
-    for(int i = 0; i < array.Length; i++){
-        Console.Write(array[i] + " ");
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+            Console.Write(array[i, j] + "\t");
+        Console.WriteLine();
     }
     Console.WriteLine();
 }
-
-Console.Write("Input a numberA: ");
-int nA = Convert.ToInt32(Console.ReadLine());
-Console.Write("Input a numberB: ");
-int nB = Convert.ToInt32(Console.ReadLine());
-Console.Write("Input N: ");
-int nN = Convert.ToInt32(Console.ReadLine());
-
-double[] myArr = CreateArray(nN, nA, nB);
-ShowArray(myArr);
-*/
-// Напишите программу, которая создает копию массива с помощью поэлементного массива
-/*
-int[] CreateRandomArray(int length, int minValue, int maxValue)
+void ArrayGameGuessTest(int[,] array)
 {
-    int[] array = new int[length];
-    for(int i = 0; i < length; i++)
+    Console.WriteLine(" Let's play the game. Please try to guess the  row index and column index of element in  random 2D array. You have 3 attempts");
+    Console.WriteLine();
+    int count = 0;
+    while (count < 3)
     {
-        array[i] = new Random().Next(minValue, maxValue + 1);
+        Console.Write(" please quess the  row index: ");
+        int i = Convert.ToInt32(Console.ReadLine());
+        Console.Write(" please guess the column index: ");
+        int j = Convert.ToInt32(Console.ReadLine());
+        if (array.GetLength(0) > i && array.GetLength(1) > j)
+        { Console.WriteLine($"Good! you got it! this is number {array[i, j]}"); Console.WriteLine(); }
+        else
+        { Console.WriteLine("Sorry, there is no such element in array, maybe next time you will be lucky!"); Console.WriteLine(); }
+        count++;
+    }
+    Console.WriteLine("By the way, here is our array: "); Console.WriteLine();
+    Show2DArray(array);
+}
+int[,] array2d = CreateFullRandom2dArray();
+ArrayGameGuessTest(array2d);
+*/
+
+/*
+// Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
+
+// Например, задан массив:
+//1 4 7 2
+//5 9 2 3
+//8 4 2 4
+//реднее арифметическое каждого столбца : 4,6; 5,6; 3,6; 3.
+int[,] CreateRandom2dArray()
+{
+    Console.WriteLine("Please input array rows: ");
+    int rows = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Please input array columns: ");
+    int columns = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Please input array minValue: ");
+    int minValue = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Please input array maxValue: ");
+    int maxValue = Convert.ToInt32(Console.ReadLine());
+    int[,] array = new int[rows, columns];
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < columns; j++)
+        {
+            array[i, j] = new Random().Next(minValue, maxValue + 1);
+        }
     }
     return array;
 }
-
-void ShowArray(int[] array)
+void Show2DArray(int[,] array)
 {
-    for(int i = 0; i < array.Length; i++)
+    Console.WriteLine();
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-        Console.Write(array[i] + " ");
+        for (int j = 0; j < array.GetLength(1); j++)
+            Console.Write(array[i, j] + "\t");
+        Console.WriteLine();
     }
     Console.WriteLine();
 }
-
-int[] CopyArray(int[] array)
+void DoubleArrayToConsole(double[] array)
 {
-    int[] copyArr = new int[array.Length];
-    for(int i = 0; i < array.Length; i++)
-    {
-        copyArr[i] = array[i];
-    }
-    return copyArr;
+    Console.WriteLine();
+    Console.Write("[");
+    for (int i = 0; i < array.Length - 1; i++)
+        Console.Write(array[i] + ", ");
+    Console.Write($"{array[array.Length - 1]}]");
+    Console.WriteLine();
 }
-
-Console.Write("Input value array: ");
-int length = Convert.ToInt32(Console.ReadLine());
-Console.Write("Input min value possible: ");
-int minVal = Convert.ToInt32(Console.ReadLine());
-Console.Write("Input max possible: ");
-int maxVal = Convert.ToInt32(Console.ReadLine());
-
-int[] myArray = CreateRandomArray(length, minVal, maxVal);
-ShowArray(myArray);
-int[] copyArray = CopyArray(myArray);
-ShowArray(copyArray);
+double[] ArithmeticAvg2dArrayColumns(int[,] array)
+{
+    double[] result = new double[array.GetLength(1)];
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+        int sum = 0;
+        for (int i = 0; i < array.GetLength(0); i++)
+        {
+            sum += array[i, j];
+        }
+        result[j] = (double)sum / array.GetLength(0);
+    }
+    return result;
+}
+int[,] arrayTest = CreateRandom2dArray();
+Console.WriteLine("Here is our array: ");
+Show2DArray(arrayTest);
+double[] arryaArith = ArithmeticAvg2dArrayColumns(arrayTest);
+Console.WriteLine("Here is arithmetic average of each column of array above: ");
+DoubleArrayToConsole(arryaArith);
 */
