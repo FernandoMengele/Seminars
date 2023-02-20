@@ -1,0 +1,15 @@
+C:\Users\Fernando\Desktop\Разработчик GB\C#\Seminars\Seminars\Seminar008\obj\Debug\net7.0\Seminar008.csproj.AssemblyReference.cache
+C:\Users\Fernando\Desktop\Разработчик GB\C#\Seminars\Seminars\Seminar008\obj\Debug\net7.0\Seminar008.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Fernando\Desktop\Разработчик GB\C#\Seminars\Seminars\Seminar008\obj\Debug\net7.0\Seminar008.AssemblyInfoInputs.cache
+C:\Users\Fernando\Desktop\Разработчик GB\C#\Seminars\Seminars\Seminar008\obj\Debug\net7.0\Seminar008.AssemblyInfo.cs
+C:\Users\Fernando\Desktop\Разработчик GB\C#\Seminars\Seminars\Seminar008\obj\Debug\net7.0\Seminar008.csproj.CoreCompileInputs.cache
+C:\Users\Fernando\Desktop\Разработчик GB\C#\Seminars\Seminars\Seminar008\bin\Debug\net7.0\Seminar008.exe
+C:\Users\Fernando\Desktop\Разработчик GB\C#\Seminars\Seminars\Seminar008\bin\Debug\net7.0\Seminar008.deps.json
+C:\Users\Fernando\Desktop\Разработчик GB\C#\Seminars\Seminars\Seminar008\bin\Debug\net7.0\Seminar008.runtimeconfig.json
+C:\Users\Fernando\Desktop\Разработчик GB\C#\Seminars\Seminars\Seminar008\bin\Debug\net7.0\Seminar008.dll
+C:\Users\Fernando\Desktop\Разработчик GB\C#\Seminars\Seminars\Seminar008\bin\Debug\net7.0\Seminar008.pdb
+C:\Users\Fernando\Desktop\Разработчик GB\C#\Seminars\Seminars\Seminar008\obj\Debug\net7.0\Seminar008.dll
+C:\Users\Fernando\Desktop\Разработчик GB\C#\Seminars\Seminars\Seminar008\obj\Debug\net7.0\refint\Seminar008.dll
+C:\Users\Fernando\Desktop\Разработчик GB\C#\Seminars\Seminars\Seminar008\obj\Debug\net7.0\Seminar008.pdb
+C:\Users\Fernando\Desktop\Разработчик GB\C#\Seminars\Seminars\Seminar008\obj\Debug\net7.0\Seminar008.genruntimeconfig.cache
+C:\Users\Fernando\Desktop\Разработчик GB\C#\Seminars\Seminars\Seminar008\obj\Debug\net7.0\ref\Seminar008.dll
