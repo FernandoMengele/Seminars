@@ -133,3 +133,28 @@ bool Existence(int num1, int num2, int num3)
 }
 if(Existence(n1, n2, n3)) Console.WriteLine("Может");
 else Console.WriteLine("Не может");
+// -------------- ДВУМЕРНЫЕ МАССИВЫ-------------------
+int[,] CreateRandom2dArray(int rows, int columns, int minValue, int maxValue)
+{
+    int[,] array = new int[rows, columns];
+    for(int i = 0; i < rows; i++) // цикл для перемещения по строкам
+    {
+        for(int j = 0; j < columns; j++) // переход по элементам в строке
+        {
+            array[i, j] = new Random().Next(minValue, maxValue + 1);
+        }
+    }
+    return array;
+}
+void Show2dArray(int[,] array)
+{
+    for(int i = 0; i < array.GetLength(0); i++) // 0 строки, 1 столбцы, 2 слои...
+    {
+        for(int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(array[i, j] + " ");
+        }
+        Console.WriteLinte();
+    }
+    Console.WriteLine();
+}
